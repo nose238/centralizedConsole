@@ -1,3 +1,6 @@
+#creating directories;
+cd /;
+mkdir centralConsole
 #Terminal utilities 
 yum install python -y;
 yum install sshpass -y;
@@ -8,4 +11,5 @@ mkdir keys
 #Python modules
 pip install daemon-runner;
 pip install lxml;
+pip install selenium;
 
