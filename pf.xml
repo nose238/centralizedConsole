@@ -27,7 +27,7 @@
 			<descr><![CDATA[System Administrator]]></descr>
 			<scope>system</scope>
 			<groupname>admins</groupname>
-			<bcrypt-hash>$2b$10$y9d.Tomfozoex/2b9rYu4Od.7FT4JRyl.VTdufpDcPlz0EDS3z0ta</bcrypt-hash>
+			<bcrypt-hash>$2b$10$13u6qwCOwODv34GyCMgdWub6oQF3RX0rG7c3d3X4JvzuEmAXLYDd2</bcrypt-hash>
 			<uid>0</uid>
 			<priv>user-shell-access</priv>
 			<expires></expires>
@@ -109,6 +109,46 @@
 			<subnetv6></subnetv6>
 			<gatewayv6></gatewayv6>
 		</lan>
+		<edu>
+			<if>em2</if>
+			<enable></enable>
+			<ipaddr>192.168.100.254</ipaddr>
+			<subnet>24</subnet>
+			<gateway></gateway>
+			<ipaddrv6></ipaddrv6>
+			<subnetv6></subnetv6>
+			<gatewayv6></gatewayv6>
+		</edu>
+		<xxx>
+			<if>em2</if>
+			<enable></enable>
+			<ipaddr>192.168.100.254</ipaddr>
+			<subnet>24</subnet>
+			<gateway></gateway>
+			<ipaddrv6></ipaddrv6>
+			<subnetv6></subnetv6>
+			<gatewayv6></gatewayv6>
+		</xxx>
+		<ultimaprueba>
+			<if>em2</if>
+			<enable></enable>
+			<ipaddr>192.168.100.254</ipaddr>
+			<subnet>24</subnet>
+			<gateway></gateway>
+			<ipaddrv6></ipaddrv6>
+			<subnetv6></subnetv6>
+			<gatewayv6></gatewayv6>
+		</ultimaprueba>
+		<centos>
+			<if>em2</if>
+			<enable></enable>
+			<ipaddr>192.168.100.254</ipaddr>
+			<subnet>24</subnet>
+			<gateway></gateway>
+			<ipaddrv6></ipaddrv6>
+			<subnetv6></subnetv6>
+			<gatewayv6></gatewayv6>
+		</centos>
 	</interfaces>
 	<staticroutes></staticroutes>
 	<dhcpd>
@@ -279,7 +319,7 @@
 	<ipsec></ipsec>
 	<aliases>
 		<alias>
-			<name>prueba</name>
+			<name>pruebitas</name>
 			<type>host</type>
 			<address>192.168.1.16 192.168.1.17 192.168.1.18 192.168.1.19 192.168.1.20 192.168.1.21 192.168.1.22 192.168.1.23 192.168.1.24 192.168.1.25 192.168.1.26 192.168.1.27 192.168.1.28 192.168.1.29 192.168.1.30 192.168.1.31</address>
 			<descr><![CDATA[this is a prove ]]></descr>
@@ -289,6 +329,27 @@
 			<name>test</name>
 			<type>host</type>
 			<address>192.168.1.16 192.168.1.17 192.168.1.18 192.168.1.19 192.168.1.20 192.168.1.21 192.168.1.22 192.168.1.23 192.168.1.24 192.168.1.25 192.168.1.26 192.168.1.27 192.168.1.28 192.168.1.29 192.168.1.30 192.168.1.31</address>
+			<descr><![CDATA[this is a prove ]]></descr>
+			<detail><![CDATA[description ||description ||description ||description ||description ||description ||description ||description ||description ||description ||description ||description ||description ||description ||description ||description ]]></detail>
+		</alias>
+		<alias>
+			<name>EDUARDO</name>
+			<type>host</type>
+			<address>192.168.1.16 192.168.1.17 192.168.1.18 192.168.1.19 192.168.1.20 192.168.1.21 192.168.1.22 192.168.1.23 192.168.1.24 192.168.1.25 192.168.1.26 192.168.1.27 192.168.1.28 192.168.1.29 192.168.1.30 192.168.1.31</address>
+			<descr><![CDATA[this is a prove ]]></descr>
+			<detail><![CDATA[description ||description ||description ||description ||description ||description ||description ||description ||description ||description ||description ||description ||description ||description ||description ||description ]]></detail>
+		</alias>
+		<alias>
+			<name>LALO</name>
+			<type>host</type>
+			<address>192.168.1.1 192.168.1.17 192.168.1.18 192.168.1.19 192.168.1.20 192.168.1.21 192.168.1.22 192.168.1.23 192.168.1.24 192.168.1.25 192.168.1.26 192.168.1.27 192.168.1.28 192.168.1.29 192.168.1.30 192.168.1.31</address>
+			<descr><![CDATA[this is a prove ]]></descr>
+			<detail><![CDATA[description ||description ||description ||description ||description ||description ||description ||description ||description ||description ||description ||description ||description ||description ||description ||description ]]></detail>
+		</alias>
+		<alias>
+			<name>Camiliwis</name>
+			<type>host</type>
+			<address>192.168.1.1 192.168.1.17 192.168.1.18 192.168.1.19 192.168.1.20 192.168.1.21 192.168.1.22 192.168.1.23 192.168.1.24 192.168.1.25 192.168.1.26 192.168.1.27 192.168.1.28 192.168.1.29 192.168.1.30 192.168.1.31</address>
 			<descr><![CDATA[this is a prove ]]></descr>
 			<detail><![CDATA[description ||description ||description ||description ||description ||description ||description ||description ||description ||description ||description ||description ||description ||description ||description ||description ]]></detail>
 		</alias>
@@ -1159,9 +1220,24 @@
 				<enablelog></enablelog>
 			</config>
 			<config>
-				<disabled></disabled>
+				<disabled>on</disabled>
 				<name>pent</name>
 				<source>192.168.100.15/24</source>
+				<time></time>
+				<dest>all [ all]</dest>
+				<notallowingip></notallowingip>
+				<redirect_mode>rmod_none</redirect_mode>
+				<redirect></redirect>
+				<safesearch></safesearch>
+				<rewrite></rewrite>
+				<overrewrite></overrewrite>
+				<description></description>
+				<enablelog></enablelog>
+			</config>
+			<config>
+				<disabled>on</disabled>
+				<name>google</name>
+				<source>192.168.100.12/24</source>
 				<time></time>
 				<dest>all [ all]</dest>
 				<notallowingip></notallowingip>
@@ -1316,4 +1392,3 @@
 		</outbound>
 	</nat>
 </pfsense>
-it works!
