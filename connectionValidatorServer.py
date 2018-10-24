@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-#Eduardo Marquez
+#This code has been developed by Eduardo Marquez
 #before executing this code it MUST exist: 
 #1. sshpass MUST be installed on terminal ***sudo apt-get install sshpass*** 
 
@@ -20,7 +20,7 @@ class App():
 ###########Daemonization part ends########################
 #---------------------MAIN-------------------------------#        
         while True:
-            #'ipList.txt':     these ip addresses will be checked by deamon to verify if SSH connectoin exists
+            #'ipList.txt':     these ip addresses will be checked by deamon to verify if SSH connection exists
             ipList = open("/home/software/scriptsSoporte/centosFiles/ipList.txt", "r")
             #'ipListNoSSH.txt': IPs which have no SSH connection
             txt_ip_SSH= open("/home/software/scriptsSoporte/centosFiles/ipListSSH.txt", "w")  
