@@ -1,15 +1,16 @@
+#!/usr/bin/env python
+# This code has been developed by Eduardo Marquez
 import commands
+import sys
 
-txt_changes = open("/var/www/html/centralizedConsole/web/centralizedConsole/changes.txt", "r")
-
-
+txt_changes = open("/home/software/scriptsSoporte/centosFiles/CAMILO.txt", "r")
 print("IP addresses will be modified: \
- " + str(len( open("/var/www/html/centralizedConsole/web/centralizedConsole/changes.txt").readlines())))
-ip_with_ssh_connection = len(open("/var/www/html/centralizedConsole/web/centralizedConsole/ipListSSH.txt").readlines() ) # ip addresses which have ssh connection
+ " + str(len( open("/home/software/scriptsSoporte/centosFiles/CAMILO.txt").readlines())))
 
+ip_with_ssh_connection = len(open("/home/software/scriptsSoporte/centosFiles/ipListSSH.txt").readlines() ) # ip addresses which have ssh connection
 
 for ip_change in txt_changes:
-	txt_connection_ssh = open("/var/www/html/centralizedConsole/web/centralizedConsole/ipListSSH.txt", "r")
+	txt_connection_ssh = open("/home/software/scriptsSoporte/centosFiles/ipListSSH.txt", "r")
 	print("************************************")
 	print("Changes in : " + ip_change[:-1])
 	counter = 1
@@ -27,25 +28,29 @@ for ip_change in txt_changes:
 			print("IP: " + ipAdClient + "	USER: " +  userClient + "	PORT: " + portClient)
 			print(str(ip_change[:-1]) + " have SSH connection. DO ALL STUFF")
 			# Applying changes in each warrior
+			file = open("/home/software/scriptsSoporte/centosFiles/change_to_do.txt", "r")
+			change_to_do = file.readline()[:-1]
+			file.close()
+			f = commands.getoutput("scp -P "+portClient+" /home/software/jozic/Python/centralConsole/conf.xml \
+				"+ userClient+"@"+ipAdClient+":/root/freeBSD_Files/applyChanges/ ")
+			print(f)
+
 			f = commands.getoutput("ssh "+userClient+"@"+ipAdClient+ " -p " + portClient + " ' if [ -d /backupCentralizedConsole ]; \
 				then echo \"Enter to backup directory\"; \
 				else mkdir /backupCentralizedConsole; echo \"backup directory generated\"; \
 				fi; \
 				cp /cf/conf/config.xml /backupCentralizedConsole/cfconf.xml ; \
-				cp /conf/config.xml /backupCentralizedConsole/conf.xml ; ' ")
-			print("Generate backup ...... DONE")
-			f = commands.getoutput("ssh "+userClient+"@"+ipAdClient + " -p " +portClient +" 'rm -f /cf/conf/config.xml ;  rm -f /conf/config.xml ;'  " )
-			print("Delete file in /cf/conf/config.xml & /conf/config.xml...... DONE")
-			f = commands.getoutput("scp -P "+portClient+" /home/software/scriptsSoporte/centosFiles/pf.xml "+userClient+"@"+ipAdClient+":/cf/conf/config.xml")
-			print("Copy in /cf/conf/config.xml & /conf/config.xml...... DONE")
-			f = commands.getoutput("ssh "+userClient+"@"+ipAdClient+ " -p " + portClient + "  ' rm -f /tmp/config.cache'  " )
-			print("Delete cache ...... DONE")
-			print("Changes has successfully been applied in: " + ipAdClient + "\n\n\n")
-			txt_connection_ssh.close()
-			break
+				cp /conf/config.xml /backupCentralizedConsole/conf.xml ; \
+				cd /root/freeBSD_Files/applyChanges/; \
+				python2 "+change_to_do+" ' ")
+			print(f)
+
+			print("Generate backup....... DONE")
+			print("Copy conf.xml......... DONE")
+			print("Delete cache-......... DONE")
+			print("Changes has been applied successfully!")
 		elif counter == int(ip_with_ssh_connection):
 			print(str(ip_change[:-1]) + " Has no ssh connection. It isn't possible to apply Changes")
 			txt_connection_ssh.close()
 			break
 		counter += 1
-		
