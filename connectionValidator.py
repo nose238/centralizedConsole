@@ -1,7 +1,5 @@
 #!/usr/bin/env python
-#This code has been developed by Eduardo Marquez
-#before executing this code it MUST exist: 
-#1. sshpass MUST be installed on terminal ***sudo apt-get install sshpass*** 
+#This code has been developed by Eduardo Marquez -- nose238@hotmail.com
 
 ##################Importing libraries#####################
 import time
@@ -21,9 +19,11 @@ class App():
 #---------------------MAIN-------------------------------#
 		i = 0
 		while True:
+			# The code is going to write ip addresses which have ssh connection and public key
 			txt_ip_SSH= open("/var/www/html/centralizedConsole/web/centralizedConsole/ipListSSH.txt", "w")  
 			txt_ip_SSH.write("")
 			txt_ip_SSH.close()
+			# Here is where code read passwd, user and port from
 			file = open('/var/www/html/centralizedConsole/web/clients/clientsCredentials', 'r')
 			for line in file:
 				txt_ip_SSH = open("/var/www/html/centralizedConsole/web/centralizedConsole/ipListSSH.txt", "a")   
@@ -35,6 +35,7 @@ class App():
 				temp       = temp.partition("|")[2]
 				portClient = temp.partition("|")[0][:len(temp.partition("|")[0])-1]
 				print("IP: " + ipAdClient + "	USER: " +  userClient + "	PASS: " + passClient + "	PORT: " + portClient)
+				# Try to connect by SSH. status get a value depending if there is an error or not
 				status = commands.getstatusoutput("sshpass -p '' ssh -o 'KbdInteractiveDevices no' -o StrictHostKeyChecking=no " + 
 				userClient + "@" + ipAdClient + " -p " + portClient) #it verifies if public key is on the Server  
 				#print(status)
