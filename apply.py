@@ -3,9 +3,9 @@
 import commands
 import sys
 
-txt_changes = open("/var/www/html/centralizedConsole/web/centralizedConsole/CAMILO.txt", "r")
+txt_changes = open("/var/www/html/centralizedConsole/web/centralizedConsole/changes.txt", "r")
 print("IP addresses will be modified: \
- " + str(len( open("/var/www/html/centralizedConsole/web/centralizedConsole/CAMILO.txt").readlines())))
+ " + str(len( open("/var/www/html/centralizedConsole/web/centralizedConsole/changes.txt").readlines())))
 
 ip_with_ssh_connection = len(open("/var/www/html/centralizedConsole/web/centralizedConsole/ipListSSH.txt").readlines() ) # ip addresses which have ssh connection
 
