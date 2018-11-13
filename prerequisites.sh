@@ -9,7 +9,8 @@ yum install sshpass -y;
 curl -O https://bootstrap.pypa.io/get-pip.py
 python get-pip.py
 rm -f get-pip.py
-mkdir keys
+mkdir keys;
+mkdir /root/.ssh/temp;
 # Python modules
 pip install daemon-runner;
 pip install lxml;

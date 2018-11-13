@@ -1,6 +1,6 @@
 import commands
 
-txt_ip_change = open("/home/software/scriptsSoporte/centosFiles/CAMILO.txt", "r")
+txt_ip_change = open("/home/software/scriptsSoporte/centosFiles/changes.txt", "r")
 
 
 for ip in txt_ip_change:

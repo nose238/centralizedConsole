@@ -21,12 +21,12 @@ class App():
 #---------------------MAIN-------------------------------#
 		i = 0
 		while True:
-			txt_ip_SSH= open("/home/software/scriptsSoporte/centosFiles/ipListSSH.txt", "w")  
+			txt_ip_SSH= open("/var/www/html/centralizedConsole/web/centralizedConsole/ipListSSH.txt", "w")  
 			txt_ip_SSH.write("")
 			txt_ip_SSH.close()
 			file = open('/var/www/html/centralizedConsole/web/clients/clientsCredentials', 'r')
 			for line in file:
-				txt_ip_SSH = open("/home/software/scriptsSoporte/centosFiles/ipListSSH.txt", "a")   
+				txt_ip_SSH = open("/var/www/html/centralizedConsole/web/centralizedConsole/ipListSSH.txt", "a")   
 				ipAdClient = line.partition("|")[0]
 				temp       = line.partition("|")[2]
 				userClient = temp.partition("|")[0]

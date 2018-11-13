@@ -1,15 +1,15 @@
 import commands
 
-txt_changes = open("/home/software/scriptsSoporte/centosFiles/CAMILO.txt", "r")
+txt_changes = open("/var/www/html/centralizedConsole/web/centralizedConsole/changes.txt", "r")
 
 
 print("IP addresses will be modified: \
- " + str(len( open("/home/software/scriptsSoporte/centosFiles/CAMILO.txt").readlines())))
-ip_with_ssh_connection = len(open("/home/software/scriptsSoporte/centosFiles/ipListSSH.txt").readlines() ) # ip addresses which have ssh connection
+ " + str(len( open("/var/www/html/centralizedConsole/web/centralizedConsole/changes.txt").readlines())))
+ip_with_ssh_connection = len(open("/var/www/html/centralizedConsole/web/centralizedConsole/ipListSSH.txt").readlines() ) # ip addresses which have ssh connection
 
 
 for ip_change in txt_changes:
-	txt_connection_ssh = open("/home/software/scriptsSoporte/centosFiles/ipListSSH.txt", "r")
+	txt_connection_ssh = open("/var/www/html/centralizedConsole/web/centralizedConsole/ipListSSH.txt", "r")
 	print("************************************")
 	print("Changes in : " + ip_change[:-1])
 	counter = 1
