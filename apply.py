@@ -3,14 +3,14 @@
 import commands
 import sys
 
-txt_changes = open("/home/software/scriptsSoporte/centosFiles/CAMILO.txt", "r")
+txt_changes = open("/var/www/html/centralizedConsole/web/centralizedConsole/CAMILO.txt", "r")
 print("IP addresses will be modified: \
- " + str(len( open("/home/software/scriptsSoporte/centosFiles/CAMILO.txt").readlines())))
+ " + str(len( open("/var/www/html/centralizedConsole/web/centralizedConsole/CAMILO.txt").readlines())))
 
-ip_with_ssh_connection = len(open("/home/software/scriptsSoporte/centosFiles/ipListSSH.txt").readlines() ) # ip addresses which have ssh connection
+ip_with_ssh_connection = len(open("/var/www/html/centralizedConsole/web/centralizedConsole/ipListSSH.txt").readlines() ) # ip addresses which have ssh connection
 
 for ip_change in txt_changes:
-	txt_connection_ssh = open("/home/software/scriptsSoporte/centosFiles/ipListSSH.txt", "r")
+	txt_connection_ssh = open("/var/www/html/centralizedConsole/web/centralizedConsole/ipListSSH.txt", "r")
 	print("************************************")
 	print("Changes in : " + ip_change[:-1])
 	counter = 1
@@ -28,10 +28,10 @@ for ip_change in txt_changes:
 			print("IP: " + ipAdClient + "	USER: " +  userClient + "	PORT: " + portClient)
 			print(str(ip_change[:-1]) + " have SSH connection. DO ALL STUFF")
 			# Applying changes in each warrior
-			file = open("/home/software/scriptsSoporte/centosFiles/change_to_do.txt", "r")
+			file = open("/var/www/html/centralizedConsole/web/centralizedConsole/change_to_do.txt", "r")
 			change_to_do = file.readline()[:-1]
 			file.close()
-			f = commands.getoutput("scp -P "+portClient+" /home/software/jozic/Python/centralConsole/conf.xml \
+			f = commands.getoutput("scp -P "+portClient+" /var/www/html/centralizedConsole/web/centralizedConsole/conf.xml \
 				"+ userClient+"@"+ipAdClient+":/root/freeBSD_Files/applyChanges/ ")
 			print(f)
 
