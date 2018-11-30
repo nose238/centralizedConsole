@@ -33,7 +33,7 @@ class App():
 				temp       = temp.partition("|")[2]
 				passClient = temp.partition("|")[0]
 				temp       = temp.partition("|")[2]
-				portClient = temp.partition("|")[0][:len(temp.partition("|")[0])-1]
+				portClient = temp.partition("|")[0]
 				print("IP: " + ipAdClient + "	USER: " +  userClient + "	PASS: " + passClient + "	PORT: " + portClient)
 				# Try to connect by SSH. status get a value depending if there is an error or not
 				status = commands.getstatusoutput("sshpass -p '' ssh -o 'KbdInteractiveDevices no' -o StrictHostKeyChecking=no " + 
