@@ -3,7 +3,7 @@
 import commands
 
 
-txt_changes = open("/var/www/html/centralizedConsole/web/centralizedConsole/changes.txt", "r") # ip addresses which you want to be affected ny changes
+txt_changes = open("/var/www/html/centralizedConsole/web/centralizedConsole/changes.txt", "r") # ip addresses which you want to be affected by changes
 print("IP addresses will be modified: \
  " + str(len( open("/var/www/html/centralizedConsole/web/centralizedConsole/changes.txt").readlines())))
 
