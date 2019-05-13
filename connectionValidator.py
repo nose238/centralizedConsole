@@ -1,5 +1,5 @@
-#!/usr/bin/env python
-#This code has been developed by Eduardo Marquez -- nose238@hotmail.com
+# !/usr/bin/env python
+# This code has been developed by Eduardo Marquez -- nose238@hotmail.com
 
 ##################Importing libraries#####################
 import time

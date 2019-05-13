@@ -22,6 +22,7 @@ pip install selenium;
 # Permises
 chmod 774 -R /var/www/html/centralizedConsole;
 chmod 774 -R /centralConsole;
+chmod 777 -R /var/www/html/centralizedConsole/web/clients; # This is not the best option
 # Changnig user
 su adminConsole;
 # Creating SSH key
